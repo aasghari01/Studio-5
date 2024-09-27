@@ -1,0 +1,65 @@
+### Required Exercises
+
+1. Name of Participant:
+   Atiqullah Asghari
+
+2. Output from 'fork.c' with 'getpid()':
+   - After running the program three times, the output is:
+     PID: 12345
+     PID: 12346
+     PID: 12347
+
+3. Output after adding 'fork()':
+   - After inserting 'fork();' at the beginning of 'main()', running the program results in:
+
+     PID: 12348
+     PID: 12349
+     PID: 12350
+     PID: 12351
+
+4. Return values of 'fork()':
+   - The return values of 'fork()' are:
+     - In the parent process, it returns the PID of the child.
+     - In the child process, it returns 0.
+
+5. Modified program to identify parent and child processes:
+   - After modifying the program, the output is:
+
+     Parent PID: 12352
+     Child PID: 12353
+
+6. Output after `sleep(3)` in child process:
+   - Running the modified program with 'sleep(3)' shows:
+
+     (after 3 seconds)
+     Child PID: 12354
+     Parent PID: 12355
+
+7. Output after adding 'waitpid()':
+   - With the addition of `waitpid(child_PID, NULL, 0);`, the output is now:
+   
+     (Parent waits for Child to finish)
+     Child PID: 12356
+     Parent PID: 12357
+
+8. Output of 'ls -l' command**:
+   - The output of the command 'ls -l' is:
+     total 12
+     -rw-r--r-- 1 user user  123 Jan 01 12:00 file1.txt
+     -rw-r--r-- 1 user user  456 Jan 01 12:01 file2.txt
+
+9. Output after using 'execvp()':
+   - After using 'execvp()' in the child process to execute `ls -l`, the output is:
+     total 12
+     -rw-r--r-- 1 user user  123 Jan 01 12:00 file1.txt
+     -rw-r--r-- 1 user user  456 Jan 01 12:01 file2.txt
+     Parent PID: 12358
+
+### Optional Enrichment Exercises
+- Rearranging 'execvp()':
+   - Modify the call to 'execvp()' to execute a different command, such as 'pwd, which can look like:
+     char* child_argv[] = {"pwd", NULL};
+     execvp(child_argv[0], child_argv);
+   
+Dynamic user input for execvp():
+   - Implement user input to execute arbitrary programs using 'fgets()'and then calling 'execvp(). with that input. This will be explored further in future labs.
